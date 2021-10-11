@@ -7,8 +7,7 @@ import java.util.Map;
 public class DemoLinkedHashMap {
 	    public static void main(String args[]) {
 	         // HashMap Declaration
-	         LinkedHashMap<Integer, String> lhmap = 
-	                 new LinkedHashMap<Integer, String>();
+	         LinkedHashMap<Integer, String> lhmap = new LinkedHashMap<Integer, String>();
 
 	         //Adding elements to LinkedHashMap
 	         lhmap.put(22, "Abey");

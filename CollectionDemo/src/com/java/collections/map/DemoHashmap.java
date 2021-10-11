@@ -28,11 +28,11 @@ package com.java.collections.map;
 	         System.out.println(mentry.getValue());
 	      }
 
-	      /* Get values based on key*/
+	      /* Get values based on key
 	      String var= hmap.get(3);
-	      System.out.println("Value at index 3 is: "+var);
+	      System.out.println("Value at index 3 is: "+var); */
 
-	      /* Remove values based on key*/
+	      /* Remove values based on key
 	      hmap.remove(3);
 	      System.out.println("Map key and values after removal:");
 	      Set set2 = hmap.entrySet();
@@ -42,7 +42,7 @@ package com.java.collections.map;
 	          System.out.print("Key is: "+mentry2.getKey() + " & Value is: ");
 	          System.out.println(mentry2.getValue());
 	       }
-
+*/
 	   }
 	}
 

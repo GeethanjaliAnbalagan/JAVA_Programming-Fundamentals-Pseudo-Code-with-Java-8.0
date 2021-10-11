@@ -11,8 +11,7 @@ package com.java.collections.map;
 	   public static void main(String args[]) {
 
 	      /* This is how to declare TreeMap */
-	      TreeMap<Integer, String> tmap = 
-	             new TreeMap<Integer, String>();
+	      TreeMap<Integer, String> tmap = new TreeMap<Integer, String>();
 
 	      /*Adding elements to TreeMap*/
 	      tmap.put(1, "Data1");
@@ -22,7 +21,7 @@ package com.java.collections.map;
 	      tmap.put(2, "Data5");
 
 	      /* Display content using Iterator*/
-	      Set set = tmap.entrySet();
+	     Set set = tmap.entrySet();
 	      Iterator iterator = set.iterator();
 	      while(iterator.hasNext()) {
 	         Map.Entry mentry = (Map.Entry)iterator.next();

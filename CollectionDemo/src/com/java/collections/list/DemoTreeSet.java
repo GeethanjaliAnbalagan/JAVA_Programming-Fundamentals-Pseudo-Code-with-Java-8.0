@@ -16,7 +16,7 @@ public class DemoTreeSet {
 		//set.add(20);
 		
 		System.out.println(set);
-		Iterator<Integer> i = set.descendingIterator();
+		/*Iterator<Integer> i = set.descendingIterator();
 		
 		while(i.hasNext())
 		{
@@ -38,7 +38,7 @@ public class DemoTreeSet {
 	          
 	         System.out.println("SubSet: "+set1.subSet("A", "E"));  
 	           
-	         System.out.println("TailSet: "+set1.tailSet("C"));  
+	         System.out.println("TailSet: "+set1.tailSet("C"));  */
 	}
 
 }
