@@ -1,0 +1,150 @@
+  
+
+                                                     CODE QUALITY
+
+                          1. Debugging in the browser
+			  2. coding Style
+			  3. Comments
+			  4.Ninja code
+			  5.Automated testing
+     			  6.Polyfills and transpillers   
+--------------------------------------------------------------------------------------------------------------------
+
+	 1. Debugging in the browser
+
+        debugger command----> debugger;
+
+       function myfunction(name){
+
+		let a = "hello,${name}";
+                  debugger;
+                   
+			}
+----------------------------------------------------------------------------------------------------------------
+  	2. coding Style
+--------------------------------------------------------------------------------------------------------------------
+	3. Comments    /** 
+                        * @param{numer} x The numer to be raised
+			* @param{numer} n The numer to be raised
+			* @return{numer} x The numer to be raised
+			*/
+------------------------------------------------------------------------------------------------------------------------          
+			
+		4.Ninja code
+
+			- One-letter variables
+			- Use abbreviations
+				Like this:
+					list → lst.
+					userAgent → ua.
+					browser → brsr.
+						…etc
+			- Soar high. Be abstract. obj,data,item,value
+				--> The ideal name for a variable is data.
+				--> Name a variable by its type: str, num…   
+			- Attention test
+				-->One of the ways – use similar variable names, like date and data.
+			- Smart synonyms
+			- Reuse names
+				   --->An advanced variant of the approach is to covertly (!) replace 
+				      the value with something alike in the middle of a loop or a function.
+
+					function ninjaFunction(elem) {
+    						// 20 lines of code working with elem
+  						elem = clone(elem);
+  						// 20 more lines, now working with the clone of the elem!
+					}
+			- Underscores for fun : _value  _name
+			- Overlap outer variables
+				let user = authenticateUser();
+				function render() {
+  				let user = anotherValue();
+  					...
+ 				 	...many lines...
+  					...
+ 			 		... // <-- a programmer wants to work with user here and...
+  					...
+				}
+------------------------------------------------------------------------------------------------------------------------
+
+		5. Automated testing with Mocha
+
+                        -->The spec can be used in three ways:
+				- As Tests – they guarantee that the code works correctly.
+				- As Docs – the titles of describe and it tell what the function does.
+				- As Examples – the tests are actually working examples showing how a function can be used
+----------------------------------------------------------------------------------------------------------------------------
+
+		6. Polyfills and transpilers
+
+				--> https://tc39.es/ecma262/
+
+				--> On the other hand, how to make our modern code work on older engines that don’t 
+    				    understand recent features yet?
+
+				--> There are two tools for that:
+
+					- Transpilers.
+					- Polyfills.
+
+				--> Transpilers.
+					- A transpiler is a special piece of software that translates source code to another 
+					source code. It can parse (“read and understand”) modern code and 
+					rewrite it using older syntax constructs, so that it’ll also work in outdated engines.
+
+					E.g. JavaScript before year 2020 didn’t have the “nullish coalescing operator” ??. 
+					So, if a visitor uses an outdated browser, it may fail to understand the code like height = height ?? 100.
+
+A transpiler would analyze our code and rewrite height ?? 100 into (height !== undefined && height !== null) ? height : 100.
+
+// before running the transpiler
+height = height ?? 100;
+
+// after running the transpiler
+height = (height !== undefined && height !== null) ? height : 100;
+
+				--> Polyfills
+					- New language features may include not only syntax constructs and operators, but 
+					 also built-in functions.
+					- For example, Math.trunc(n) is a function that “cuts off” the decimal part of a 
+					number, e.g Math.trunc(1.23) returns 1.
+					- In some (very outdated) JavaScript engines, there’s no Math.trunc, so such code will fail.
+
+For this particular case, the polyfill for Math.trunc is a script that implements it, like this:
+
+if (!Math.trunc) { // if no such function
+  // implement it
+  Math.trunc = function(number) {
+    // Math.ceil and Math.floor exist even in ancient JavaScript engines
+    // they are covered later in the tutorial
+    return number < 0 ? Math.ceil(number) : Math.floor(number);
+  };
+}
+
+
+Good resources that show the current state of support for various features:
+
+https://kangax.github.io/compat-table/es6/ – for pure JavaScript.
+https://caniuse.com/ – for browser-related functions.
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

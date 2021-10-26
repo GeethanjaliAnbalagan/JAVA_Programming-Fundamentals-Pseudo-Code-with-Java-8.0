@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- https://javascript.info/testing-mocha add mocha css, to show results -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+  <!-- add mocha framework code -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+  <script>
+    // enable bdd-style testing
+    mocha.setup('bdd');
+  </script>
+  <!-- add chai -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+  <script>
+    // chai has a lot of stuff, let's make assert global
+    let assert = chai.assert;
+  </script>
+</head>
+
+<body>
+
+  <script>
+    function pow() {
+      return 8; // :) we cheat!
+    }
+  </script>
+
+  <!-- the script with tests (describe, it...) -->
+  <script src="test.js"></script>
+
+  <!-- the element with id="mocha" will contain test results -->
+  <div id="mocha"></div>
+
+  <!-- run tests! -->
+  <script>
+    mocha.run();
+  </script>
+</body>
+</html>
+-------------------------------------------------------------------------------------------------------------------------
+The spec in action
+Automated testing with Mocha-1
+
+describe("pow", function() {
+
+  it("raises to n-th power", function() {
+    assert.equal(pow(2, 3), 8);
+  });
+
+});
+--------------------------------------------------------------------------------------------------------------------------
+Improving the spec
+Automated testing with Mocha-2
+
+describe("pow", function() {
+
+  it("2 raised to power 3 is 8", function() {
+    assert.equal(pow(2, 3), 8);
+  });
+
+  it("3 raised to power 4 is 81", function() {
+    assert.equal(pow(3, 4), 81);
+  });
+
+});
+-----------------------------------------------------------------------------------------------------------------------
+Improving the implementation
+
+script
+
+<script>
+    function pow(x, n) {
+      let result = 1;
+
+      for (let i = 0; i < n; i++) {
+        result *= x;
+      }
+
+      return result;
+    }
+     </script>
+
+.js file
+
+describe("pow", function() {
+
+  function makeTest(x) {
+    let expected = x * x * x;
+    it(`${x} in the power 3 is ${expected}`, function() {
+      assert.equal(pow(x, 3), expected);
+    });
+  }
+
+  for (let x = 1; x <= 5; x++) {
+    makeTest(x);
+  }
+
+});
+----------------------------------------------------------------------------------------------------------------------------
+Nested describe
+
+describe("pow", function() {
+
+  describe("raises x to power 3", function() {
+
+    function makeTest(x) {
+      let expected = x * x * x;
+      it(`${x} in the power 3 is ${expected}`, function() {
+        assert.equal(pow(x, 3), expected);
+      });
+    }
+
+    for (let x = 1; x <= 5; x++) {
+      makeTest(x);
+    }
+
+  });
+---------------------------------------------------------------------------------------------------------------------------
+before/after and beforeEach/afterEach
+
+describe("test", function() {
+
+  before(() => alert("Testing started – before all tests"));
+  after(() => alert("Testing finished – after all tests"));
+
+  beforeEach(() => alert("Before a test – enter a test"));
+  afterEach(() => alert("After a test – exit a test"));
+
+  it('test 1', () => alert(1));
+  it('test 2', () => alert(2));
+
+});
+---------------------------------------------------------------------------------------------------------------------------
+Extending the spec
+
+describe("pow", function() {
+
+  describe("raises x to power 3", function() {
+
+    function makeTest(x) {
+      let expected = x * x * x;
+      it(`${x} in the power 3 is ${expected}`, function() {
+        assert.equal(pow(x, 3), expected);
+      });
+    }
+
+    for (let x = 1; x <= 5; x++) {
+      makeTest(x);
+    }
+
+  });
+
+  it("if n is negative, the result is NaN", function() {
+    assert.isNaN(pow(2, -1));
+  });
+
+  it("if n is not integer, the result is NaN", function() {
+    assert.isNaN(pow(2, 1.5));
+  });
+
+});
+
+
+  // ... more tests to follow here, both describe and it can be added
+});
+----------------------------------------------------------------------------------------------------------------------------
