@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<p>Ordered like an object</p>
+<script>
+"use strict";
+
+let codes = {
+  "49": "Germany",
+  "41": "Switzerland",
+  "44": "Great Britain",
+  "33": "Great japan",
+
+  // ..,
+  "1": "USA"
+};
+
+for (let code in codes) {
+  alert(code); // 1, 41, 44, 49
+}
+
+for (let key in codes) {
+  // keys
+  alert( key );  // name, age, isAdmin
+  // values for the keys
+  alert( codes[key] ); // John, 30, true
+}
+</script>

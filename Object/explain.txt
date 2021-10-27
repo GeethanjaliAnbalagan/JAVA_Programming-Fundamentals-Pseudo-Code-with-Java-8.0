@@ -1,0 +1,24 @@
+Objects: the basics
+--------------------------------------
+1. Objects
+2. Object references and copying
+3. Garbage collection
+4. Object methods, "this"
+5. Constructor, operator "new"
+6. Optional chaining '?.'
+7. Symbol type
+8. Object to primitive conversion
+----------------------------------------------------------------------------------------------------
+1.Objects
+
+	- An object can be created with figure brackets {…} with an optional list of properties. 
+	- A property is a “key: value” pair, where key is a string (also called a “property name”), and value can be anything.
+	- Literals and properties
+	- Square brackets
+-----------------------------------------------------------------------------------------------------------------
+2. Object references and copying
+	
+	- Object references and copying
+	- Comparison by reference
+	- Cloning and merging, Object.assign
+	- Nested cloning
