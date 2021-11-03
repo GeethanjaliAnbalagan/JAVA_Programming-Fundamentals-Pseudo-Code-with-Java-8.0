@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+<!-- defining CashPayment bean -->
+  <bean id="payment" class="com.java.SpringBeanFactory.Autowiringusinbytype.Autowiringusinbytype_SpringBeanFactory_11.CashPayment"  primary="true" /> 
+<!-- <bean id="payment" class="com.java.SpringBeanFactory.Autowiringusinbytype.Autowiringusinbytype_SpringBeanFactory_11.CashPayment" primary="true"/> -->
+ 
+ <!-- Defining PayServiceImpl bean and injecting payment bean -->
+ <bean id="payServiceBean" class="com.java.SpringBeanFactory.Autowiringusinbytype.Autowiringusinbytype_SpringBeanFactory_11.PayServiceImpl" autowire="byType">
+     <property name="amount" value="20" />
+</bean>
+<!-- defining CreditPayment bean -->
+<bean id="creditPayment" class="com.java.SpringBeanFactory.Autowiringusinbytype.Autowiringusinbytype_SpringBeanFactory_11.CreditPayment" />  
+<!-- <bean id="creditPayment" class="com.java.SpringBeanFactory.Autowiringusinbytype.Autowiringusinbytype_SpringBeanFactory_11.CreditPayment" autowire-candidate="false" /> -->
+
+</beans>
