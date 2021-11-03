@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+<bean id="answer1" class="com.java.SpringBeanFactory4.SpringBeanFactory_4.Answer">
+<constructor-arg value="1"></constructor-arg>
+<constructor-arg value="Java is a Programming Language"></constructor-arg>
+<constructor-arg value="12/12/2001"></constructor-arg>
+</bean>
+<bean id="answer2" class="com.java.SpringBeanFactory4.SpringBeanFactory_4.Answer">
+<constructor-arg value="2"></constructor-arg>
+<constructor-arg value="Java is a Platform"></constructor-arg>
+<constructor-arg value="12/12/2003"></constructor-arg>
+</bean>
+
+<bean id="user1" class="com.java.SpringBeanFactory4.SpringBeanFactory_4.User">
+<constructor-arg value="1"></constructor-arg>
+<constructor-arg value="Arun Kumar"></constructor-arg>
+<constructor-arg value="arun@gmail.com"></constructor-arg>
+</bean>
+<bean id="user2" class="com.java.SpringBeanFactory4.SpringBeanFactory_4.User">
+<constructor-arg value="2"></constructor-arg>
+<constructor-arg value="Varun Kumar"></constructor-arg>
+<constructor-arg value="Varun@gmail.com"></constructor-arg>
+</bean>
+
+<bean id="q" class="com.java.SpringBeanFactory4.SpringBeanFactory_4.Question">
+<constructor-arg value="1"></constructor-arg>
+<constructor-arg value="What is Java?"></constructor-arg>
+<constructor-arg>
+<map>
+<entry key-ref="answer1" value-ref="user1"></entry>
+<entry key-ref="answer2" value-ref="user2"></entry>
+</map>
+</constructor-arg>
+</bean>
+
+</beans>
